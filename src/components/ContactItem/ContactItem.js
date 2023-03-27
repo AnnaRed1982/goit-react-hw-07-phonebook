@@ -6,7 +6,8 @@ import css from 'components/ContactItem/ContacItem.module.css';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(id));
+  // const handleDelete = () => dispatch(deleteContact(id));
+  const handleDelete = () => dispatch();
 
   return (
     <div className={css.item}>

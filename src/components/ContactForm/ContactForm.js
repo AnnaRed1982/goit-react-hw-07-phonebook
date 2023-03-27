@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import css from 'components/ContactForm/ContactForm.module.css';
 
 export const ContactForm = () => {
-  const contacts = useSelector(state => state.contacts.contactsReducer);
+  const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -18,7 +18,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact(name.value, number.value));
+    // dispatch(addContact(name.value, number.value));
     e.currentTarget.reset();
   };
 
