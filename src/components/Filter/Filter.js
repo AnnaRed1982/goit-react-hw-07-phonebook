@@ -9,7 +9,6 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const onCnange = evt => dispatch(setFilter(evt.target.value));
 
-  console.log('filter', filter);
   return (
     <label htmlFor="filter">
       Find contact by name
