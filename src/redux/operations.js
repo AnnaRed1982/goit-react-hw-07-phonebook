@@ -21,18 +21,19 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-// export const addContacts = createAsyncThunk(
-//   'contacts/addContacts',
-//   async (text, thunkAPI) => {
-//     try {
-//       const response = await axios.post('/contacts', { text });
-//       console.log(response.data);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const addContacts = createAsyncThunk(
+  'contacts/addContacts',
+  async (data, thunkAPI) => {
+    const { name, phone } = data;
+    try {
+      const response = await axios.post('/contacts', { name, phone });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const deleteContacts = createAsyncThunk(
   'contacts/deleteContacts',

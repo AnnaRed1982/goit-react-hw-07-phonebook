@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, deleteContacts } from './operations';
+import { fetchContacts, addContacts, deleteContacts } from './operations';
 // import { useSelector, useDispatch } from 'react-redux';
 
 const handlePending = state => {
@@ -41,6 +41,14 @@ export const contactsSlice = createSlice({
       state.items = action.payload;
     });
     builder.addCase(fetchContacts.rejected, handleRejected);
+
+    builder.addCase(addContacts.pending, handlePending);
+    builder.addCase(addContacts.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.items.push(action.payload);
+    });
+    builder.addCase(addContacts.rejected, handleRejected);
 
     builder.addCase(deleteContacts.pending, handlePending);
     builder.addCase(deleteContacts.fulfilled, (state, action) => {
