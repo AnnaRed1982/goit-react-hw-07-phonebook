@@ -1,13 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContacts } from 'redux/operations';
+// import { useEffect } from 'react';
+// import { useHistory } from 'react-router-dom';
+
 
 import PropTypes from 'prop-types';
 import css from 'components/ContactItem/ContacItem.module.css';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteContact(id));
-  const handleDelete = () => dispatch();
+
+  const handleDelete = () => dispatch(deleteContacts(id));
 
   return (
     <div className={css.item}>
