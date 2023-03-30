@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
-
+import { selectFilter } from 'redux/selectors';
 import PropTypes from 'prop-types';
 
 export const Filter = () => {
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(selectFilter);
 
   const dispatch = useDispatch();
   const onCnange = evt => dispatch(setFilter(evt.target.value));
